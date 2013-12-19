@@ -32,29 +32,6 @@
 				<div id="container">
 					
 					<div class="section section-overview index-overview">
-						
-						
-						<h1>Introduction</h1>
-
-<p>FreeStreamer is an audio player engine for iOS and OS X, designed for playing audio streams. The engine has a minimal UI for demonstration. Respectfully, see the <a href="https://github.com/muhku/FreeStreamer/tree/master/FreeStreamerDesktop">FreeStreamerDesktop</a> directory for OS X, and, <a href="https://github.com/muhku/FreeStreamer/tree/master/FreeStreamerMobile">FreeStreamerMobile</a> for the iOS UI.</p>
-
-<p>The engine is written in C++ and the <a href="Classes/FSAudioController.html">FSAudioController</a> Objective-C class wraps the implementation.</p>
-
-<p>FreeStreamer has the following features:</p>
-
-<ul>
-<li>Fast and low memory footprint (no overhead of Objective-C method calls)</li>
-<li>Supports ShoutCast and IceCast audio streams + standard HTTP</li>
-<li>Can detect the stream type based on the content type</li>
-<li>Supports ShoutCast metadata</li>
-<li>Supports interruptions (for example a phone call during playing the stream)</li>
-<li>Supports backgrounding</li>
-<li>Supports a subset of the ID3v2 tag specification</li>
-<li>Supports Podcast RSS feeds</li>
-</ul>
-
-
-<p><a href="https://github.com/muhku/FreeStreamer/"><img src="https://raw.github.com/muhku/FreeStreamer/master/Extra/player-new.png" alt="Player view" /></a></p>
 
 <h1>Using the player in your own project</h1>
 
@@ -76,13 +53,24 @@
 </ol>
 
 
-<p>You can now stream an audio file like this:</p>
+<p>You can now stream an audio file like this. Declare the stream in your header file:</p>
+
+<pre><code>@class FSAudioStream;
+
+@interface MyClass : NSObject {
+    FSAudioStream *_audioStream;
+}
+</code></pre>
+
+<p>Initialize and use the stream in your implementation:</p>
 
 <pre><code>#import "FSAudioStream.h"
 
-FSAudioStream *audioStream = [[FSAudioStream alloc] init];
-[audioStream playFromURL:[NSURL URLWithString:@"http://www.example.com/audio_file.mp3"]];
+_audioStream = [[FSAudioStream alloc] init];
+[_audioStream playFromURL:[NSURL URLWithString:@"http://www.example.com/audio_file.mp3"]];
 </code></pre>
+
+<p>Note that FSAudioStream must exist during the playback of the stream. Do not declare the class as a local variable of a method or the stream will be deallocated and will not play.</p>
 
 <p>Some servers may send an incorrect MIME type. In this case, FreeStreamer may not be able to play the stream. If you want to avoid the content-type checks (that the stream actually is an audio file), you can set the following property:</p>
 
@@ -91,13 +79,22 @@ FSAudioStream *audioStream = [[FSAudioStream alloc] init];
 audioStream.defaultContentType = "audio/mpeg";
 </code></pre>
 
-<p>For streaming playlists, you need to use the <a href="https://github.com/muhku/FreeStreamer/blob/master/Common/FSAudioController.h">FSAudioController.h</a> class. The class has some additional logic to resolve the playback URLs:</p>
+<p>For streaming playlists, you need to use the <a href="https://github.com/muhku/FreeStreamer/blob/master/Common/FSAudioController.h">FSAudioController.h</a> class. The class has some additional logic to resolve the playback URLs. Again, declare the class:</p>
 
-<pre><code>#import "FSAudioController.h"
+<pre><code>@class FSAudioController;
 
-FSAudioController *audioController = [[FSAudioController alloc] init];
-audioController.url = @"http://www.example.com/my_playlist.pls";
-[audioController play];
+@interface MyClass : NSObject {
+    FSAudioController *_audioController;
+}
+</code></pre>
+
+<p>And use it:</p>
+
+<pre><code>#import "FSAudioStream.h"
+
+_audioController = [[FSAudioController alloc] init];
+_audioController.url = @"http://www.example.com/my_playlist.pls";
+[_audioController play];
 </code></pre>
 
 <p>It is also possible to check the exact content of the stream by using the <a href="https://github.com/muhku/FreeStreamer/blob/master/Common/FSCheckContentTypeRequest.h">FSCheckContentTypeRequest.h</a> and <a href="https://github.com/muhku/FreeStreamer/blob/master/Common/FSParsePlaylistRequest.h">FSParsePlaylistRequest.h</a> classes:</p>
