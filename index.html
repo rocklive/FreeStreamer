@@ -152,6 +152,33 @@ request.onFailure = ^() {
 That's it! For more examples, please take a look at the example project. For instance, you may want to observe notifications on the audio stream state.
 </p>
 
+<h3>Debugging</h3>
+
+<p>
+To enable debug logging, enable the following line in <a href="https://github.com/muhku/FreeStreamer/blob/master/astreamer/audio_stream.cpp#L17">astreamer/audio_stream.cpp</a>:
+</p>
+
+<pre><code>#define AS_DEBUG 1
+</code></pre>
+
+<p>
+After enabling the line, compile the code and run it.
+</p>
+
+<p>
+It is also possible to check the lastError property in the FSAudioStream class:
+</p>
+
+<pre><code>NSLog(@"Last error code: %i", audioStream.lastError);
+</code></pre>
+
+<p>
+Or if you are using the FSAudioController class, then:
+</p>
+
+<pre><code>NSLog(@"Last error code: %i", audioController.stream.lastError);
+</code></pre>
+
 <h3>Reporting bugs and contributing</h3>
 
 <p>Your contributions are most welcome. If you want to send code, please a send a patch and make sure it can be merged to the master branch without conflicts.</p>
