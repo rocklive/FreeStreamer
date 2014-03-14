@@ -31,128 +31,6 @@
 				</div>
 				<div id="container">
 					
-					<div class="section section-overview index-overview">
-
-<h1>Using the player in your own project</h1>
-
-<p>Please follow the following steps to use the player in your own project:</p>
-
-<ol>
-<li><p>Make sure you have the following frameworks linked to your project:</p>
-
-<ul>
-<li><em>CFNetwork.framework</em></li>
-<li><em>AudioToolbox.framework</em></li>
-<li><em>AVFoundation.framework</em></li>
-<li><em>libxml2.dylib</em> (add <code>$(SDKROOT)/usr/include/libxml2</code> to the header search path, if not found)</li>
-<li><em>MediaPlayer.framework</em> (iOS only)</li>
-</ul>
-</li>
-<li><p>Add the <a href="https://github.com/muhku/FreeStreamer/tree/master/Common">Common</a> and <a href="https://github.com/muhku/FreeStreamer/tree/master/astreamer">astreamer</a> directories to your project. Try building the project now and it should compile successfully.</p></li>
-<li><p><strong>iOS only</strong>: If you want to support background audio, add <em>App plays audio</em> to the target&rsquo;s <em>Required background modes</em>. You can find the property by clicking on the target on Xcode and opening the Info tab.</p></li>
-</ol>
-
-
-<p>You can now stream an audio file like this. Declare the stream in your header file:</p>
-
-<pre><code>@class FSAudioStream;
-
-@interface MyClass : NSObject {
-    FSAudioStream *_audioStream;
-}
-</code></pre>
-
-<p>Initialize and use the stream in your implementation:</p>
-
-<pre><code>#import "FSAudioStream.h"
-
-_audioStream = [[FSAudioStream alloc] init];
-[_audioStream playFromURL:[NSURL URLWithString:@"http://www.example.com/audio_file.mp3"]];
-</code></pre>
-
-<p>Note that FSAudioStream must exist during the playback of the stream. Do not declare the class as a local variable of a method or the stream will be deallocated and will not play.</p>
-
-<p>Some servers may send an incorrect MIME type. In this case, FreeStreamer may not be able to play the stream. If you want to avoid the content-type checks (that the stream actually is an audio file), you can set the following property:</p>
-
-<pre><code>audioStream.strictContentTypeChecking = NO;
-// Optionally, set the content-type where to fallback to
-audioStream.defaultContentType = "audio/mpeg";
-</code></pre>
-
-<p>For streaming playlists, you need to use the <a href="https://github.com/muhku/FreeStreamer/blob/master/Common/FSAudioController.h">FSAudioController.h</a> class. The class has some additional logic to resolve the playback URLs. Again, declare the class:</p>
-
-<pre><code>@class FSAudioController;
-
-@interface MyClass : NSObject {
-    FSAudioController *_audioController;
-}
-</code></pre>
-
-<p>And use it:</p>
-
-<pre><code>#import "FSAudioStream.h"
-
-_audioController = [[FSAudioController alloc] init];
-_audioController.url = @"http://www.example.com/my_playlist.pls";
-[_audioController play];
-</code></pre>
-
-<p>It is also possible to check the exact content of the stream by using the <a href="https://github.com/muhku/FreeStreamer/blob/master/Common/FSCheckContentTypeRequest.h">FSCheckContentTypeRequest.h</a> and <a href="https://github.com/muhku/FreeStreamer/blob/master/Common/FSParsePlaylistRequest.h">FSParsePlaylistRequest.h</a> classes:</p>
-
-<pre><code>FSCheckContentTypeRequest *request = [[FSCheckContentTypeRequest alloc] init];
-request.url = @"http://www.example.com/not-sure-about-the-type-of-this-file";
-request.onCompletion = ^() {
-    if (self.request.playlist) {
-        // The URL is a playlist; now do something with it...
-    }
-};
-request.onFailure = ^() {   
-};
-
-[request start];
-</code></pre>
-
-<p>That&rsquo;s it! For more examples, please take a look at the example project. For instance, you may want to observe notifications on the audio stream state.</p>
-
-<h1>Reporting bugs and contributing</h1>
-
-<p>Your contributions are most welcome. If you want to send code, please a send a patch and make sure it can be merged to the master branch without conflicts.</p>
-
-<p>If you have anything to ask, you can use email.</p>
-
-<h1>License</h1>
-
-<p>The BSD license which the files are licensed under allows is as follows:</p>
-
-<pre><code>Copyright (c) 2011-2013 Matias Muhonen &lt;info@freestreamer.io&gt;
-All rights reserved.
-
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions
-are met:
-1. Redistributions of source code must retain the above copyright
-   notice, this list of conditions and the following disclaimer.
-2. Redistributions in binary form must reproduce the above copyright
-   notice, this list of conditions and the following disclaimer in the
-   documentation and/or other materials provided with the distribution.
-3. The name of the author may not be used to endorse or promote products
-   derived from this software without specific prior written permission.
-
-THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
-IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
-OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
-INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
-THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-</code></pre>
-						
-						
-					</div>
-					
                         
                     
 					
@@ -191,6 +69,19 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 					</div>
 					
 					
+						
+					<div class="index-column">
+						
+						<h2 class="index-title">Protocol References</h2>
+						<ul>
+							
+							<li><a href="Protocols/FSPCMAudioStreamDelegate.html">FSPCMAudioStreamDelegate</a></li>
+							
+						</ul>
+						
+                        
+						
+					</div>
 					
 				</div>
 				<div class="main-navigation navigation-bottom">
@@ -199,7 +90,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Matias Muhonen. All rights reserved. (Last updated: 2013-12-05)</span><br />
+						<p><span class="copyright">&copy; 2014 Matias Muhonen. All rights reserved. (Last updated: 2014-03-14)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						
