@@ -49,11 +49,15 @@
 	
 	<option value="//api/name/frequencyPlotView">&nbsp;&nbsp;&nbsp;&nbsp;frequencyPlotView</option>
 	
+	<option value="//api/name/nextButton">&nbsp;&nbsp;&nbsp;&nbsp;nextButton</option>
+	
 	<option value="//api/name/pauseButton">&nbsp;&nbsp;&nbsp;&nbsp;pauseButton</option>
 	
 	<option value="//api/name/playButton">&nbsp;&nbsp;&nbsp;&nbsp;playButton</option>
 	
 	<option value="//api/name/prebufferStatus">&nbsp;&nbsp;&nbsp;&nbsp;prebufferStatus</option>
+	
+	<option value="//api/name/previousButton">&nbsp;&nbsp;&nbsp;&nbsp;previousButton</option>
 	
 	<option value="//api/name/progressSlider">&nbsp;&nbsp;&nbsp;&nbsp;progressSlider</option>
 	
@@ -83,6 +87,10 @@
 	<option value="//api/name/pause:">&nbsp;&nbsp;&nbsp;&nbsp;- pause:</option>
 	
 	<option value="//api/name/play:">&nbsp;&nbsp;&nbsp;&nbsp;- play:</option>
+	
+	<option value="//api/name/playNext:">&nbsp;&nbsp;&nbsp;&nbsp;- playNext:</option>
+	
+	<option value="//api/name/playPrevious:">&nbsp;&nbsp;&nbsp;&nbsp;- playPrevious:</option>
 	
 	<option value="//api/name/remoteControlReceivedWithEvent:">&nbsp;&nbsp;&nbsp;&nbsp;- remoteControlReceivedWithEvent:</option>
 	
@@ -124,11 +132,15 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/frequencyPlotView">frequencyPlotView</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/nextButton">nextButton</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pauseButton">pauseButton</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/playButton">playButton</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/prebufferStatus">prebufferStatus</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/previousButton">previousButton</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/progressSlider">progressSlider</a></span></li>
 	
@@ -159,6 +171,10 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pause:">pause:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/play:">play:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/playNext:">playNext:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/playPrevious:">playPrevious:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/remoteControlReceivedWithEvent:">remoteControlReceivedWithEvent:</a></span></li>
 	
@@ -251,6 +267,18 @@
 	
 </li><li>
 	<span class="tooltip">
+		<code><a href="#//api/name/nextButton">&nbsp;&nbsp;nextButton</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/previousButton">&nbsp;&nbsp;previousButton</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
 		<code><a href="#//api/name/analyzerButton">&nbsp;&nbsp;analyzerButton</a></code>
 	</span>
 	<span class="task-item-suffix">property</span>
@@ -330,6 +358,18 @@
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/pause:">&ndash;&nbsp;pause:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/playNext:">&ndash;&nbsp;playNext:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/playPrevious:">&ndash;&nbsp;playPrevious:</a></code>
 	</span>
 	
 	
@@ -576,6 +616,47 @@
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/nextButton" title="nextButton"></a>
+	<h3 class="subsubtitle method-title">nextButton</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Reference to the next button.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) IBOutlet UIButton *nextButton</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Reference to the next button.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FSPlayerViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/pauseButton" title="pauseButton"></a>
 	<h3 class="subsubtitle method-title">pauseButton</h3>
 	
@@ -682,6 +763,47 @@
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>Reference to the prebuffer status.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FSPlayerViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/previousButton" title="previousButton"></a>
+	<h3 class="subsubtitle method-title">previousButton</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Reference to the previous button.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) IBOutlet UIButton *previousButton</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Reference to the previous button.</p>
 	</div>
 	
 	
@@ -1226,6 +1348,108 @@ the flag must be activated again.</p>
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/playNext:" title="playNext:"></a>
+	<h3 class="subsubtitle method-title">playNext:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>An action for Playing the next item of a multi-item playlist.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (IBAction)playNext:(id)<em>sender</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>sender</em></dt>
+			<dd><p>The sender of the action.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>An action for Playing the next item of a multi-item playlist.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FSPlayerViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/playPrevious:" title="playPrevious:"></a>
+	<h3 class="subsubtitle method-title">playPrevious:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>An action for Playing the previous item of a multi-item playlist.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (IBAction)playPrevious:(id)<em>sender</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>sender</em></dt>
+			<dd><p>The sender of the action.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>An action for Playing the previous item of a multi-item playlist.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FSPlayerViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/remoteControlReceivedWithEvent:" title="remoteControlReceivedWithEvent:"></a>
 	<h3 class="subsubtitle method-title">remoteControlReceivedWithEvent:</h3>
 	
@@ -1396,7 +1620,7 @@ the flag must be activated again.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2015 Matias Muhonen. All rights reserved. (Last updated: 2015-01-10)</span><br />
+						<p><span class="copyright">&copy; 2015 Matias Muhonen. All rights reserved. (Last updated: 2015-01-29)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						

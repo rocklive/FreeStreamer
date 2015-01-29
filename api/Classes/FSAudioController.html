@@ -54,6 +54,10 @@
 	
 	<option value="instance_methods">Instance Methods</option>
 	
+	<option value="//api/name/hasNextItem">&nbsp;&nbsp;&nbsp;&nbsp;- hasNextItem</option>
+	
+	<option value="//api/name/hasPreviousItem">&nbsp;&nbsp;&nbsp;&nbsp;- hasPreviousItem</option>
+	
 	<option value="//api/name/initWithUrl:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithUrl:</option>
 	
 	<option value="//api/name/isPlaying">&nbsp;&nbsp;&nbsp;&nbsp;- isPlaying</option>
@@ -63,6 +67,10 @@
 	<option value="//api/name/play">&nbsp;&nbsp;&nbsp;&nbsp;- play</option>
 	
 	<option value="//api/name/playFromURL:">&nbsp;&nbsp;&nbsp;&nbsp;- playFromURL:</option>
+	
+	<option value="//api/name/playNextItem">&nbsp;&nbsp;&nbsp;&nbsp;- playNextItem</option>
+	
+	<option value="//api/name/playPreviousItem">&nbsp;&nbsp;&nbsp;&nbsp;- playPreviousItem</option>
 	
 	<option value="//api/name/stop">&nbsp;&nbsp;&nbsp;&nbsp;- stop</option>
 	
@@ -106,6 +114,10 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/hasNextItem">hasNextItem</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/hasPreviousItem">hasPreviousItem</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithUrl:">initWithUrl:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/isPlaying">isPlaying</a></span></li>
@@ -115,6 +127,10 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/play">play</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/playFromURL:">playFromURL:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/playNextItem">playNextItem</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/playPreviousItem">playPreviousItem</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/stop">stop</a></span></li>
 	
@@ -211,6 +227,30 @@ content type is checked for each URL.</p>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/isPlaying">&ndash;&nbsp;isPlaying</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/hasNextItem">&ndash;&nbsp;hasNextItem</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/hasPreviousItem">&ndash;&nbsp;hasPreviousItem</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/playNextItem">&ndash;&nbsp;playNextItem</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/playPreviousItem">&ndash;&nbsp;playPreviousItem</a></code>
 	</span>
 	
 	
@@ -432,6 +472,88 @@ lower than the current playback volume set by the user.</p>
 					<div class="section section-methods">
 						<a title="Instance Methods" name="instance_methods"></a>
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/hasNextItem" title="hasNextItem"></a>
+	<h3 class="subsubtitle method-title">hasNextItem</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns if the current multiple-item playlist has next item</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)hasNextItem</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns if the current multiple-item playlist has next item</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FSAudioController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/hasPreviousItem" title="hasPreviousItem"></a>
+	<h3 class="subsubtitle method-title">hasPreviousItem</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns if the current multiple-item playlist has Previous item</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)hasPreviousItem</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns if the current multiple-item playlist has Previous item</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FSAudioController.h</code><br />
+	</div>				
+	
+	
+</div>
 						
 						<div class="section-method">
 	<a name="//api/name/initWithUrl:" title="initWithUrl:"></a>
@@ -665,6 +787,88 @@ the URL content type is checked and playlists resolved.</p>
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/playNextItem" title="playNextItem"></a>
+	<h3 class="subsubtitle method-title">playNextItem</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Play the next item of multiple-item playlist</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)playNextItem</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Play the next item of multiple-item playlist</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FSAudioController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/playPreviousItem" title="playPreviousItem"></a>
+	<h3 class="subsubtitle method-title">playPreviousItem</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Play the previous item of multiple-item playlist</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)playPreviousItem</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Play the previous item of multiple-item playlist</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FSAudioController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/stop" title="stop"></a>
 	<h3 class="subsubtitle method-title">stop</h3>
 	
@@ -723,7 +927,7 @@ the URL content type is checked and playlists resolved.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2015 Matias Muhonen. All rights reserved. (Last updated: 2015-01-10)</span><br />
+						<p><span class="copyright">&copy; 2015 Matias Muhonen. All rights reserved. (Last updated: 2015-01-29)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						
