@@ -77,6 +77,8 @@
 	
 	<option value="//api/name/suggestedFileExtension">&nbsp;&nbsp;&nbsp;&nbsp;suggestedFileExtension</option>
 	
+	<option value="//api/name/totalCachedObjectsSize">&nbsp;&nbsp;&nbsp;&nbsp;totalCachedObjectsSize</option>
+	
 	<option value="//api/name/url">&nbsp;&nbsp;&nbsp;&nbsp;url</option>
 	
 	<option value="//api/name/volume">&nbsp;&nbsp;&nbsp;&nbsp;volume</option>
@@ -87,6 +89,8 @@
 	
 	
 	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/expungeCache">&nbsp;&nbsp;&nbsp;&nbsp;- expungeCache</option>
 	
 	<option value="//api/name/initWithConfiguration:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithConfiguration:</option>
 	
@@ -172,6 +176,8 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/suggestedFileExtension">suggestedFileExtension</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/totalCachedObjectsSize">totalCachedObjectsSize</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/url">url</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/volume">volume</a></span></li>
@@ -183,6 +189,8 @@
 
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/expungeCache">expungeCache</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithConfiguration:">initWithConfiguration:</a></span></li>
 	
@@ -344,6 +352,12 @@ threads are needed).</p>
 	
 </li><li>
 	<span class="tooltip">
+		<code><a href="#//api/name/expungeCache">&ndash;&nbsp;expungeCache</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
 		<code><a href="#//api/name/url">&nbsp;&nbsp;url</a></code>
 	</span>
 	<span class="task-item-suffix">property</span>
@@ -429,6 +443,12 @@ threads are needed).</p>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/volume">&nbsp;&nbsp;volume</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/totalCachedObjectsSize">&nbsp;&nbsp;totalCachedObjectsSize</a></code>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -1283,6 +1303,47 @@ of the content type information given by the server.</p>
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/totalCachedObjectsSize" title="totalCachedObjectsSize"></a>
+	<h3 class="subsubtitle method-title">totalCachedObjectsSize</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The current size of the disk cache.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) unsigned long long totalCachedObjectsSize</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The current size of the disk cache.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FSAudioStream.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/url" title="url"></a>
 	<h3 class="subsubtitle method-title">url</h3>
 	
@@ -1381,6 +1442,47 @@ lower than the current playback volume set by the user.</p>
 					<div class="section section-methods">
 						<a title="Instance Methods" name="instance_methods"></a>
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/expungeCache" title="expungeCache"></a>
+	<h3 class="subsubtitle method-title">expungeCache</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Cleans all <a href="#//api/name/cached">cached</a> data from the persistent storage.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)expungeCache</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Cleans all <a href="#//api/name/cached">cached</a> data from the persistent storage.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FSAudioStream.h</code><br />
+	</div>				
+	
+	
+</div>
 						
 						<div class="section-method">
 	<a name="//api/name/initWithConfiguration:" title="initWithConfiguration:"></a>
@@ -1935,7 +2037,7 @@ the buffer sizes for the stream still to <a href="#//api/name/play">play</a>.</p
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2015 Matias Muhonen. All rights reserved. (Last updated: 2015-01-29)</span><br />
+						<p><span class="copyright">&copy; 2015 Matias Muhonen. All rights reserved. (Last updated: 2015-02-03)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						
