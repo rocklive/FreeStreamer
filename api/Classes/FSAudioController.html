@@ -66,6 +66,10 @@
 	
 	<option value="//api/name/play">&nbsp;&nbsp;&nbsp;&nbsp;- play</option>
 	
+	<option value="//api/name/playFromPlaylist:">&nbsp;&nbsp;&nbsp;&nbsp;- playFromPlaylist:</option>
+	
+	<option value="//api/name/playFromPlaylist:itemIndex:">&nbsp;&nbsp;&nbsp;&nbsp;- playFromPlaylist:itemIndex:</option>
+	
 	<option value="//api/name/playFromURL:">&nbsp;&nbsp;&nbsp;&nbsp;- playFromURL:</option>
 	
 	<option value="//api/name/playNextItem">&nbsp;&nbsp;&nbsp;&nbsp;- playNextItem</option>
@@ -125,6 +129,10 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pause">pause</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/play">play</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/playFromPlaylist:">playFromPlaylist:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/playFromPlaylist:itemIndex:">playFromPlaylist:itemIndex:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/playFromURL:">playFromURL:</a></span></li>
 	
@@ -209,6 +217,18 @@ content type is checked for each URL.</p>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/playFromURL:">&ndash;&nbsp;playFromURL:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/playFromPlaylist:">&ndash;&nbsp;playFromPlaylist:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/playFromPlaylist:itemIndex:">&ndash;&nbsp;playFromPlaylist:itemIndex:</a></code>
 	</span>
 	
 	
@@ -734,6 +754,119 @@ the URL content type is checked and playlists resolved.</p>
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/playFromPlaylist:" title="playFromPlaylist:"></a>
+	<h3 class="subsubtitle method-title">playFromPlaylist:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Starts playing the <a href="#//api/name/stream">stream</a> from the given playlist. Each item in the array
+must an <a href="../Classes/FSPlaylistItem.html">FSPlaylistItem</a>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)playFromPlaylist:(id)<em>playlist</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>playlist</em></dt>
+			<dd><p>The playlist items.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Starts playing the <a href="#//api/name/stream">stream</a> from the given playlist. Each item in the array
+must an <a href="../Classes/FSPlaylistItem.html">FSPlaylistItem</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FSAudioController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/playFromPlaylist:itemIndex:" title="playFromPlaylist:itemIndex:"></a>
+	<h3 class="subsubtitle method-title">playFromPlaylist:itemIndex:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Starts playing the <a href="#//api/name/stream">stream</a> from the given playlist. Each item in the array
+must an <a href="../Classes/FSPlaylistItem.html">FSPlaylistItem</a>. The playback starts from the given index
+in the playlist.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)playFromPlaylist:(id)<em>playlist</em> itemIndex:(id)<em>index</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>playlist</em></dt>
+			<dd><p>The playlist items.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>index</em></dt>
+			<dd><p>The playlist index where to start playback from.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Starts playing the <a href="#//api/name/stream">stream</a> from the given playlist. Each item in the array
+must an <a href="../Classes/FSPlaylistItem.html">FSPlaylistItem</a>. The playback starts from the given index
+in the playlist.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FSAudioController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/playFromURL:" title="playFromURL:"></a>
 	<h3 class="subsubtitle method-title">playFromURL:</h3>
 	
@@ -927,7 +1060,7 @@ the URL content type is checked and playlists resolved.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2015 Matias Muhonen. All rights reserved. (Last updated: 2015-02-17)</span><br />
+						<p><span class="copyright">&copy; 2015 Matias Muhonen. All rights reserved. (Last updated: 2015-02-23)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						
