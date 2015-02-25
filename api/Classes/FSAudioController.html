@@ -54,6 +54,10 @@
 	
 	<option value="instance_methods">Instance Methods</option>
 	
+	<option value="//api/name/addItem:">&nbsp;&nbsp;&nbsp;&nbsp;- addItem:</option>
+	
+	<option value="//api/name/countOfItems">&nbsp;&nbsp;&nbsp;&nbsp;- countOfItems</option>
+	
 	<option value="//api/name/hasNextItem">&nbsp;&nbsp;&nbsp;&nbsp;- hasNextItem</option>
 	
 	<option value="//api/name/hasPreviousItem">&nbsp;&nbsp;&nbsp;&nbsp;- hasPreviousItem</option>
@@ -72,9 +76,13 @@
 	
 	<option value="//api/name/playFromURL:">&nbsp;&nbsp;&nbsp;&nbsp;- playFromURL:</option>
 	
+	<option value="//api/name/playItemAtIndex:">&nbsp;&nbsp;&nbsp;&nbsp;- playItemAtIndex:</option>
+	
 	<option value="//api/name/playNextItem">&nbsp;&nbsp;&nbsp;&nbsp;- playNextItem</option>
 	
 	<option value="//api/name/playPreviousItem">&nbsp;&nbsp;&nbsp;&nbsp;- playPreviousItem</option>
+	
+	<option value="//api/name/removeItemAtIndex:">&nbsp;&nbsp;&nbsp;&nbsp;- removeItemAtIndex:</option>
 	
 	<option value="//api/name/stop">&nbsp;&nbsp;&nbsp;&nbsp;- stop</option>
 	
@@ -118,6 +126,10 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/addItem:">addItem:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/countOfItems">countOfItems</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/hasNextItem">hasNextItem</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/hasPreviousItem">hasPreviousItem</a></span></li>
@@ -136,9 +148,13 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/playFromURL:">playFromURL:</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/playItemAtIndex:">playItemAtIndex:</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/playNextItem">playNextItem</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/playPreviousItem">playPreviousItem</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/removeItemAtIndex:">removeItemAtIndex:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/stop">stop</a></span></li>
 	
@@ -229,6 +245,30 @@ content type is checked for each URL.</p>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/playFromPlaylist:itemIndex:">&ndash;&nbsp;playFromPlaylist:itemIndex:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/playItemAtIndex:">&ndash;&nbsp;playItemAtIndex:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/countOfItems">&ndash;&nbsp;countOfItems</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/addItem:">&ndash;&nbsp;addItem:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/removeItemAtIndex:">&ndash;&nbsp;removeItemAtIndex:</a></code>
 	</span>
 	
 	
@@ -492,6 +532,98 @@ lower than the current playback volume set by the user.</p>
 					<div class="section section-methods">
 						<a title="Instance Methods" name="instance_methods"></a>
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/addItem:" title="addItem:"></a>
+	<h3 class="subsubtitle method-title">addItem:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Adds an item to the playlist.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)addItem:(id)<em>item</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>item</em></dt>
+			<dd><p>The playlist item to be added.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Adds an item to the playlist.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FSAudioController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/countOfItems" title="countOfItems"></a>
+	<h3 class="subsubtitle method-title">countOfItems</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns the count of playlist items.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSUInteger)countOfItems</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns the count of playlist items.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FSAudioController.h</code><br />
+	</div>				
+	
+	
+</div>
 						
 						<div class="section-method">
 	<a name="//api/name/hasNextItem" title="hasNextItem"></a>
@@ -920,6 +1052,57 @@ the URL content type is checked and playlists resolved.</p>
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/playItemAtIndex:" title="playItemAtIndex:"></a>
+	<h3 class="subsubtitle method-title">playItemAtIndex:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Plays a playlist item at the specified index.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)playItemAtIndex:(id)<em>index</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>index</em></dt>
+			<dd><p>The playlist index where to start playback from.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Plays a playlist item at the specified index.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FSAudioController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/playNextItem" title="playNextItem"></a>
 	<h3 class="subsubtitle method-title">playNextItem</h3>
 	
@@ -1002,6 +1185,57 @@ the URL content type is checked and playlists resolved.</p>
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/removeItemAtIndex:" title="removeItemAtIndex:"></a>
+	<h3 class="subsubtitle method-title">removeItemAtIndex:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Removes a playlist item.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)removeItemAtIndex:(id)<em>index</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>index</em></dt>
+			<dd><p>The index of the playlist item to be removed.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Removes a playlist item.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FSAudioController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/stop" title="stop"></a>
 	<h3 class="subsubtitle method-title">stop</h3>
 	
@@ -1060,7 +1294,7 @@ the URL content type is checked and playlists resolved.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2015 Matias Muhonen. All rights reserved. (Last updated: 2015-02-23)</span><br />
+						<p><span class="copyright">&copy; 2015 Matias Muhonen. All rights reserved. (Last updated: 2015-02-25)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						
