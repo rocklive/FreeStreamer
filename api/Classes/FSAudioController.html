@@ -39,9 +39,21 @@
 	
 	<option value="properties">Properties</option>
 	
+	<option value="//api/name/activeStream">&nbsp;&nbsp;&nbsp;&nbsp;activeStream</option>
+	
 	<option value="//api/name/currentPlaylistItem">&nbsp;&nbsp;&nbsp;&nbsp;currentPlaylistItem</option>
 	
-	<option value="//api/name/stream">&nbsp;&nbsp;&nbsp;&nbsp;stream</option>
+	<option value="//api/name/delegate">&nbsp;&nbsp;&nbsp;&nbsp;delegate</option>
+	
+	<option value="//api/name/enableDebugOutput">&nbsp;&nbsp;&nbsp;&nbsp;enableDebugOutput</option>
+	
+	<option value="//api/name/onFailure">&nbsp;&nbsp;&nbsp;&nbsp;onFailure</option>
+	
+	<option value="//api/name/onMetaDataAvailable">&nbsp;&nbsp;&nbsp;&nbsp;onMetaDataAvailable</option>
+	
+	<option value="//api/name/onStateChange">&nbsp;&nbsp;&nbsp;&nbsp;onStateChange</option>
+	
+	<option value="//api/name/preloadNextPlaylistItemAutomatically">&nbsp;&nbsp;&nbsp;&nbsp;preloadNextPlaylistItemAutomatically</option>
 	
 	<option value="//api/name/url">&nbsp;&nbsp;&nbsp;&nbsp;url</option>
 	
@@ -110,9 +122,21 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/activeStream">activeStream</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/currentPlaylistItem">currentPlaylistItem</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/stream">stream</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/delegate">delegate</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/enableDebugOutput">enableDebugOutput</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/onFailure">onFailure</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/onMetaDataAvailable">onMetaDataAvailable</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/onStateChange">onStateChange</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/preloadNextPlaylistItemAutomatically">preloadNextPlaylistItemAutomatically</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/url">url</a></span></li>
 	
@@ -198,11 +222,21 @@
 						<p>FSAudioController is functionally equivalent to <a href="../Classes/FSAudioStream.html">FSAudioStream</a> with
 one addition: it can be directly fed with a playlist (PLS, M3U) URL
 or an RSS podcast feed. It determines the content type and forms
-a playlist for playback.</p>
+a playlist for playback. Notice that this generates more traffic and
+is generally more slower than using an <a href="../Classes/FSAudioStream.html">FSAudioStream</a> directly.</p>
 
-<p>Do not use this class but <a href="../Classes/FSAudioStream.html">FSAudioStream</a>, if you already know the content type
-of the URL. Using this class will generate more traffic, as the
-content type is checked for each URL.</p>
+<p>It is also possible to construct a playlist by yourself by providing
+the playlist items. In this case see the methods for managing the playlist.</p>
+
+<p>If you have a playlist with multiple items, FSAudioController attemps
+automatically preload the next item in the playlist. This helps to
+start the next item playback immediately without the need for the
+user to wait for buffering.</p>
+
+<p>Notice that do not attempt to set your own blocks to the audio stream
+owned by the controller. FSAudioController uses the blocks internally
+and any user set blocks will be overwritten. Instead use the blocks
+offered by FSAudioController.</p>
 					</div>
 					
 					
@@ -328,13 +362,49 @@ content type is checked for each URL.</p>
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/stream">&nbsp;&nbsp;stream</a></code>
+		<code><a href="#//api/name/activeStream">&nbsp;&nbsp;activeStream</a></code>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/currentPlaylistItem">&nbsp;&nbsp;currentPlaylistItem</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/preloadNextPlaylistItemAutomatically">&nbsp;&nbsp;preloadNextPlaylistItemAutomatically</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/enableDebugOutput">&nbsp;&nbsp;enableDebugOutput</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/onStateChange">&nbsp;&nbsp;onStateChange</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/onMetaDataAvailable">&nbsp;&nbsp;onMetaDataAvailable</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/onFailure">&nbsp;&nbsp;onFailure</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/delegate">&nbsp;&nbsp;delegate</a></code>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -350,6 +420,53 @@ content type is checked for each URL.</p>
 					<div class="section section-methods">
 						<a title="Properties" name="properties"></a>
 						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/activeStream" title="activeStream"></a>
+	<h3 class="subsubtitle method-title">activeStream</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The the active playing stream, which may change
+from time to time during the playback. In this way, do not
+set your own blocks to the stream but use the blocks
+provides by FSAudioController.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (readonly) FSAudioStream *activeStream</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The the active playing stream, which may change
+from time to time during the playback. In this way, do not
+set your own blocks to the stream but use the blocks
+provides by FSAudioController.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FSAudioController.h</code><br />
+	</div>				
+	
+	
+</div>
 						
 						<div class="section-method">
 	<a name="//api/name/currentPlaylistItem" title="currentPlaylistItem"></a>
@@ -393,18 +510,18 @@ content type is checked for each URL.</p>
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/stream" title="stream"></a>
-	<h3 class="subsubtitle method-title">stream</h3>
+	<a name="//api/name/delegate" title="delegate"></a>
+	<h3 class="subsubtitle method-title">delegate</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The audio stream.</p>
+		<p>Delegate.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property (readonly) FSAudioStream *stream</code></div>
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, unsafe_unretained) IBOutlet id&lt;FSAudioControllerDelegate&gt; delegate</code></div>
 
     
 	
@@ -416,7 +533,216 @@ content type is checked for each URL.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The audio stream.</p>
+		<p>Delegate.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FSAudioController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/enableDebugOutput" title="enableDebugOutput"></a>
+	<h3 class="subsubtitle method-title">enableDebugOutput</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>This property determines if the debug output is enabled. Disabled
+by default</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) BOOL enableDebugOutput</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>This property determines if the debug output is enabled. Disabled
+by default</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FSAudioController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/onFailure" title="onFailure"></a>
+	<h3 class="subsubtitle method-title">onFailure</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called upon a failure.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (copy) void ( ^ ) ( FSAudioStreamError error , NSString *errorDescription ) onFailure</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Called upon a failure.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FSAudioController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/onMetaDataAvailable" title="onMetaDataAvailable"></a>
+	<h3 class="subsubtitle method-title">onMetaDataAvailable</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called upon a meta data is available.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (copy) void ( ^ ) ( NSDictionary *metadata ) onMetaDataAvailable</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Called upon a meta data is available.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FSAudioController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/onStateChange" title="onStateChange"></a>
+	<h3 class="subsubtitle method-title">onStateChange</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called upon a state change.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (copy) void ( ^ ) ( FSAudioStreamState state ) onStateChange</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Called upon a state change.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FSAudioController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/preloadNextPlaylistItemAutomatically" title="preloadNextPlaylistItemAutomatically"></a>
+	<h3 class="subsubtitle method-title">preloadNextPlaylistItemAutomatically</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>This property determines if the next playlist item should be loaded
+automatically. This is YES by default.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) BOOL preloadNextPlaylistItemAutomatically</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>This property determines if the next playlist item should be loaded
+automatically. This is YES by default.</p>
 	</div>
 	
 	
@@ -440,7 +766,7 @@ content type is checked for each URL.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The <a href="#//api/name/stream">stream</a> URL.</p>
+		<p>The controller URL.</p>
 	</div>		
 	
     
@@ -457,7 +783,7 @@ content type is checked for each URL.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The <a href="#//api/name/stream">stream</a> URL.</p>
+		<p>The controller URL.</p>
 	</div>
 	
 	
@@ -481,7 +807,7 @@ content type is checked for each URL.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>This property holds the current playback volume of the <a href="#//api/name/stream">stream</a>,
+		<p>This property holds the current playback volume of the stream,
 from 0.0 to 1.0.</p>
 	</div>		
 	
@@ -499,7 +825,7 @@ from 0.0 to 1.0.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>This property holds the current playback volume of the <a href="#//api/name/stream">stream</a>,
+		<p>This property holds the current playback volume of the stream,
 from 0.0 to 1.0.</p>
 
 <p>Note that the overall volume is still constrained by the volume
@@ -714,7 +1040,7 @@ lower than the current playback volume set by the user.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Initializes the audio <a href="#//api/name/stream">stream</a> with an URL.</p>
+		<p>Initializes the audio stream with an URL.</p>
 	</div>		
 	
     
@@ -728,7 +1054,7 @@ lower than the current playback volume set by the user.</p>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>url</em></dt>
-			<dd><p>The URL from which the <a href="#//api/name/stream">stream</a> data is retrieved.</p></dd>
+			<dd><p>The URL from which the stream data is retrieved.</p></dd>
 		</dl>
 		
 	</div>
@@ -741,7 +1067,7 @@ lower than the current playback volume set by the user.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Initializes the audio <a href="#//api/name/stream">stream</a> with an URL.</p>
+		<p>Initializes the audio stream with an URL.</p>
 	</div>
 	
 	
@@ -765,7 +1091,7 @@ lower than the current playback volume set by the user.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Returns the playback status: YES if the <a href="#//api/name/stream">stream</a> is playing, NO otherwise.</p>
+		<p>Returns the playback status: YES if the stream is playing, NO otherwise.</p>
 	</div>		
 	
     
@@ -782,7 +1108,7 @@ lower than the current playback volume set by the user.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Returns the playback status: YES if the <a href="#//api/name/stream">stream</a> is playing, NO otherwise.</p>
+		<p>Returns the playback status: YES if the stream is playing, NO otherwise.</p>
 	</div>
 	
 	
@@ -806,8 +1132,8 @@ lower than the current playback volume set by the user.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>If the <a href="#//api/name/stream">stream</a> is playing, the <a href="#//api/name/stream">stream</a> playback is paused upon calling pause.
-Otherwise (the <a href="#//api/name/stream">stream</a> is paused), calling pause will continue the playback.</p>
+		<p>If the stream is playing, the stream playback is paused upon calling pause.
+Otherwise (the stream is paused), calling pause will continue the playback.</p>
 	</div>		
 	
     
@@ -824,8 +1150,8 @@ Otherwise (the <a href="#//api/name/stream">stream</a> is paused), calling pause
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>If the <a href="#//api/name/stream">stream</a> is playing, the <a href="#//api/name/stream">stream</a> playback is paused upon calling pause.
-Otherwise (the <a href="#//api/name/stream">stream</a> is paused), calling pause will continue the playback.</p>
+		<p>If the stream is playing, the stream playback is paused upon calling pause.
+Otherwise (the stream is paused), calling pause will continue the playback.</p>
 	</div>
 	
 	
@@ -849,7 +1175,7 @@ Otherwise (the <a href="#//api/name/stream">stream</a> is paused), calling pause
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Starts playing the <a href="#//api/name/stream">stream</a>. Before the playback starts,
+		<p>Starts playing the stream. Before the playback starts,
 the URL content type is checked and playlists resolved.</p>
 	</div>		
 	
@@ -867,7 +1193,7 @@ the URL content type is checked and playlists resolved.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Starts playing the <a href="#//api/name/stream">stream</a>. Before the playback starts,
+		<p>Starts playing the stream. Before the playback starts,
 the URL content type is checked and playlists resolved.</p>
 	</div>
 	
@@ -892,7 +1218,7 @@ the URL content type is checked and playlists resolved.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Starts playing the <a href="#//api/name/stream">stream</a> from the given playlist. Each item in the array
+		<p>Starts playing the stream from the given playlist. Each item in the array
 must an <a href="../Classes/FSPlaylistItem.html">FSPlaylistItem</a>.</p>
 	</div>		
 	
@@ -920,7 +1246,7 @@ must an <a href="../Classes/FSPlaylistItem.html">FSPlaylistItem</a>.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Starts playing the <a href="#//api/name/stream">stream</a> from the given playlist. Each item in the array
+		<p>Starts playing the stream from the given playlist. Each item in the array
 must an <a href="../Classes/FSPlaylistItem.html">FSPlaylistItem</a>.</p>
 	</div>
 	
@@ -945,7 +1271,7 @@ must an <a href="../Classes/FSPlaylistItem.html">FSPlaylistItem</a>.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Starts playing the <a href="#//api/name/stream">stream</a> from the given playlist. Each item in the array
+		<p>Starts playing the stream from the given playlist. Each item in the array
 must an <a href="../Classes/FSPlaylistItem.html">FSPlaylistItem</a>. The playback starts from the given index
 in the playlist.</p>
 	</div>		
@@ -979,7 +1305,7 @@ in the playlist.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Starts playing the <a href="#//api/name/stream">stream</a> from the given playlist. Each item in the array
+		<p>Starts playing the stream from the given playlist. Each item in the array
 must an <a href="../Classes/FSPlaylistItem.html">FSPlaylistItem</a>. The playback starts from the given index
 in the playlist.</p>
 	</div>
@@ -1005,7 +1331,7 @@ in the playlist.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Starts playing the <a href="#//api/name/stream">stream</a> from an URL. Before the playback starts,
+		<p>Starts playing the stream from an URL. Before the playback starts,
 the URL content type is checked and playlists resolved.</p>
 	</div>		
 	
@@ -1020,7 +1346,7 @@ the URL content type is checked and playlists resolved.</p>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>url</em></dt>
-			<dd><p>The URL from which the <a href="#//api/name/stream">stream</a> data is retrieved.</p></dd>
+			<dd><p>The URL from which the stream data is retrieved.</p></dd>
 		</dl>
 		
 	</div>
@@ -1033,7 +1359,7 @@ the URL content type is checked and playlists resolved.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Starts playing the <a href="#//api/name/stream">stream</a> from an URL. Before the playback starts,
+		<p>Starts playing the stream from an URL. Before the playback starts,
 the URL content type is checked and playlists resolved.</p>
 	</div>
 	
@@ -1242,7 +1568,7 @@ the URL content type is checked and playlists resolved.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Stops the <a href="#//api/name/stream">stream</a> playback.</p>
+		<p>Stops the stream playback.</p>
 	</div>		
 	
     
@@ -1259,7 +1585,7 @@ the URL content type is checked and playlists resolved.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Stops the <a href="#//api/name/stream">stream</a> playback.</p>
+		<p>Stops the stream playback.</p>
 	</div>
 	
 	
@@ -1294,7 +1620,7 @@ the URL content type is checked and playlists resolved.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2015 Matias Muhonen. All rights reserved. (Last updated: 2015-02-25)</span><br />
+						<p><span class="copyright">&copy; 2015 Matias Muhonen. All rights reserved. (Last updated: 2015-02-27)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						
