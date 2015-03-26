@@ -45,6 +45,8 @@
 	
 	<option value="//api/name/bufferingIndicator">&nbsp;&nbsp;&nbsp;&nbsp;bufferingIndicator</option>
 	
+	<option value="//api/name/configuration">&nbsp;&nbsp;&nbsp;&nbsp;configuration</option>
+	
 	<option value="//api/name/currentPlaybackTime">&nbsp;&nbsp;&nbsp;&nbsp;currentPlaybackTime</option>
 	
 	<option value="//api/name/frequencyPlotView">&nbsp;&nbsp;&nbsp;&nbsp;frequencyPlotView</option>
@@ -64,6 +66,8 @@
 	<option value="//api/name/selectedPlaylistItem">&nbsp;&nbsp;&nbsp;&nbsp;selectedPlaylistItem</option>
 	
 	<option value="//api/name/shouldStartPlaying">&nbsp;&nbsp;&nbsp;&nbsp;shouldStartPlaying</option>
+	
+	<option value="//api/name/snapshotLabel">&nbsp;&nbsp;&nbsp;&nbsp;snapshotLabel</option>
 	
 	<option value="//api/name/statusLabel">&nbsp;&nbsp;&nbsp;&nbsp;statusLabel</option>
 	
@@ -128,6 +132,8 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/bufferingIndicator">bufferingIndicator</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/configuration">configuration</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/currentPlaybackTime">currentPlaybackTime</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/frequencyPlotView">frequencyPlotView</a></span></li>
@@ -147,6 +153,8 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/selectedPlaylistItem">selectedPlaylistItem</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/shouldStartPlaying">shouldStartPlaying</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/snapshotLabel">snapshotLabel</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/statusLabel">statusLabel</a></span></li>
 	
@@ -309,6 +317,12 @@
 	
 </li><li>
 	<span class="tooltip">
+		<code><a href="#//api/name/snapshotLabel">&nbsp;&nbsp;snapshotLabel</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
 		<code><a href="#//api/name/audioController">&nbsp;&nbsp;audioController</a></code>
 	</span>
 	<span class="task-item-suffix">property</span>
@@ -328,6 +342,12 @@
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/prebufferStatus">&nbsp;&nbsp;prebufferStatus</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -517,6 +537,47 @@
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>Reference to the buffering indicator.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FSPlayerViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/configuration" title="configuration"></a>
+	<h3 class="subsubtitle method-title">configuration</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Reference to the stream configuration.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) FSStreamConfiguration *configuration</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Reference to the stream configuration.</p>
 	</div>
 	
 	
@@ -933,6 +994,47 @@ the flag must be activated again.</p>
 when the view appears. When the playback starts, the property
 is automatically set to false. For consequent playback requests,
 the flag must be activated again.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FSPlayerViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/snapshotLabel" title="snapshotLabel"></a>
+	<h3 class="subsubtitle method-title">snapshotLabel</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Reference to the label displaying the current playback time.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) IBOutlet UILabel *snapshotLabel</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Reference to the label displaying the current playback time.</p>
 	</div>
 	
 	
@@ -1620,7 +1722,7 @@ the flag must be activated again.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2015 Matias Muhonen. All rights reserved. (Last updated: 2015-03-08)</span><br />
+						<p><span class="copyright">&copy; 2015 Matias Muhonen. All rights reserved. (Last updated: 2015-03-26)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						
