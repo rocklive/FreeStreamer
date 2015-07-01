@@ -41,6 +41,8 @@
 	
 	<option value="//api/name/bufferSizeControl">&nbsp;&nbsp;&nbsp;&nbsp;bufferSizeControl</option>
 	
+	<option value="//api/name/diskCacheControl">&nbsp;&nbsp;&nbsp;&nbsp;diskCacheControl</option>
+	
 	<option value="//api/name/navigationController">&nbsp;&nbsp;&nbsp;&nbsp;navigationController</option>
 	
 	<option value="//api/name/playerViewController">&nbsp;&nbsp;&nbsp;&nbsp;playerViewController</option>
@@ -61,6 +63,8 @@
 	<option value="//api/name/addPlaylistItem:">&nbsp;&nbsp;&nbsp;&nbsp;- addPlaylistItem:</option>
 	
 	<option value="//api/name/selectBufferSize:">&nbsp;&nbsp;&nbsp;&nbsp;- selectBufferSize:</option>
+	
+	<option value="//api/name/switchDiskCache:">&nbsp;&nbsp;&nbsp;&nbsp;- switchDiskCache:</option>
 	
 	
 	
@@ -88,6 +92,8 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/bufferSizeControl">bufferSizeControl</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/diskCacheControl">diskCacheControl</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/navigationController">navigationController</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/playerViewController">playerViewController</a></span></li>
@@ -109,6 +115,8 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/addPlaylistItem:">addPlaylistItem:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/selectBufferSize:">selectBufferSize:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/switchDiskCache:">switchDiskCache:</a></span></li>
 	
 </ul></li>
 
@@ -207,7 +215,19 @@ FSParsePlaylistFeedRequest class.</p>
 	
 </li><li>
 	<span class="tooltip">
+		<code><a href="#//api/name/diskCacheControl">&nbsp;&nbsp;diskCacheControl</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
 		<code><a href="#//api/name/addPlaylistItem:">&ndash;&nbsp;addPlaylistItem:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/switchDiskCache:">&ndash;&nbsp;switchDiskCache:</a></code>
 	</span>
 	
 	
@@ -255,6 +275,47 @@ FSParsePlaylistFeedRequest class.</p>
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>Reference to the buffer size control.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FSPlaylistViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/diskCacheControl" title="diskCacheControl"></a>
+	<h3 class="subsubtitle method-title">diskCacheControl</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Reference to the disk cache control.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) IBOutlet UISegmentedControl *diskCacheControl</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Reference to the disk cache control.</p>
 	</div>
 	
 	
@@ -588,6 +649,57 @@ FSParsePlaylistFeedRequest class.</p>
 	
 </div>
 						
+						<div class="section-method">
+	<a name="//api/name/switchDiskCache:" title="switchDiskCache:"></a>
+	<h3 class="subsubtitle method-title">switchDiskCache:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>An IBAction to switch the disk caching on/off.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (IBAction)switchDiskCache:(id)<em>sender</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>sender</em></dt>
+			<dd><p>The sender of the action.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>An IBAction to switch the disk caching on/off.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FSPlaylistViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
 					</div>
 					
 					
@@ -606,7 +718,7 @@ FSParsePlaylistFeedRequest class.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2015 Matias Muhonen. All rights reserved. (Last updated: 2015-03-29)</span><br />
+						<p><span class="copyright">&copy; 2015 Matias Muhonen. All rights reserved. (Last updated: 2015-07-01)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						
