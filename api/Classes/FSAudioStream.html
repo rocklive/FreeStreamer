@@ -6,7 +6,7 @@
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
-		<meta name="generator" content="appledoc 2.2 (build 963)" />
+		<meta name="generator" content="appledoc 2.2.1 (build 1334)" />
 	</head>
 	<body>
 		<header id="top_header">
@@ -114,6 +114,8 @@
 	
 	<option value="//api/name/preload">&nbsp;&nbsp;&nbsp;&nbsp;- preload</option>
 	
+	<option value="//api/name/rewind:">&nbsp;&nbsp;&nbsp;&nbsp;- rewind:</option>
+	
 	<option value="//api/name/seekToPosition:">&nbsp;&nbsp;&nbsp;&nbsp;- seekToPosition:</option>
 	
 	<option value="//api/name/setPlayRate:">&nbsp;&nbsp;&nbsp;&nbsp;- setPlayRate:</option>
@@ -219,6 +221,8 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/playFromURL:">playFromURL:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/preload">preload</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/rewind:">rewind:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/seekToPosition:">seekToPosition:</a></span></li>
 	
@@ -341,6 +345,12 @@ threads are needed).</p>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/pause">&ndash;&nbsp;pause</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/rewind:">&ndash;&nbsp;rewind:</a></code>
 	</span>
 	
 	
@@ -1653,7 +1663,7 @@ lower than the current playback volume set by the user.</p>
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (id)initWithConfiguration:(id)<em>configuration</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (id)initWithConfiguration:(FSStreamConfiguration *)<em>configuration</em></code></div>
 
     
 	
@@ -1704,7 +1714,7 @@ lower than the current playback volume set by the user.</p>
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (id)initWithUrl:(id)<em>url</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (id)initWithUrl:(NSURL *)<em>url</em></code></div>
 
     
 	
@@ -1884,7 +1894,7 @@ The offset can be retrieved from the stream with the
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)playFromOffset:(id)<em>offset</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)playFromOffset:(FSSeekByteOffset)<em>offset</em></code></div>
 
     
 	
@@ -1937,7 +1947,7 @@ The offset can be retrieved from the stream with the
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)playFromURL:(id)<em>url</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)playFromURL:(NSURL *)<em>url</em></code></div>
 
     
 	
@@ -2020,6 +2030,57 @@ defined, an error will occur.</p>
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/rewind:" title="rewind:"></a>
+	<h3 class="subsubtitle method-title">rewind:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Rewinds the stream. Only possible for <a href="#//api/name/continuous">continuous</a> streams.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)rewind:(unsigned)<em>seconds</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>seconds</em></dt>
+			<dd><p>Seconds to rewind the stream.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Rewinds the stream. Only possible for <a href="#//api/name/continuous">continuous</a> streams.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FSAudioStream.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/seekToPosition:" title="seekToPosition:"></a>
 	<h3 class="subsubtitle method-title">seekToPosition:</h3>
 	
@@ -2032,7 +2093,7 @@ defined, an error will occur.</p>
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)seekToPosition:(id)<em>position</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)seekToPosition:(FSStreamPosition)<em>position</em></code></div>
 
     
 	
@@ -2089,7 +2150,7 @@ the buffer sizes for the stream still to <a href="#//api/name/play">play</a>.</p
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)setPlayRate:(id)<em>playRate</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)setPlayRate:(float)<em>playRate</em></code></div>
 
     
 	
@@ -2194,9 +2255,9 @@ the buffer sizes for the stream still to <a href="#//api/name/play">play</a>.</p
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2015 Matias Muhonen. All rights reserved. (Last updated: 2015-07-01)</span><br />
+						<p><span class="copyright">&copy; 2015 Matias Muhonen. All rights reserved. (Last updated: 2015-12-15)</span><br />
 						
-						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</span></p>
 						
 					</div>
 				</div>
