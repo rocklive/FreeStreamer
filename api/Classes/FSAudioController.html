@@ -78,7 +78,11 @@
 	
 	<option value="//api/name/initWithUrl:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithUrl:</option>
 	
+	<option value="//api/name/insertItem:atIndex:">&nbsp;&nbsp;&nbsp;&nbsp;- insertItem:atIndex:</option>
+	
 	<option value="//api/name/isPlaying">&nbsp;&nbsp;&nbsp;&nbsp;- isPlaying</option>
+	
+	<option value="//api/name/moveItemAtIndex:toIndex:">&nbsp;&nbsp;&nbsp;&nbsp;- moveItemAtIndex:toIndex:</option>
 	
 	<option value="//api/name/pause">&nbsp;&nbsp;&nbsp;&nbsp;- pause</option>
 	
@@ -166,7 +170,11 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithUrl:">initWithUrl:</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/insertItem:atIndex:">insertItem:atIndex:</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/isPlaying">isPlaying</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/moveItemAtIndex:toIndex:">moveItemAtIndex:toIndex:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pause">pause</a></span></li>
 	
@@ -305,6 +313,18 @@ offered by FSAudioController.</p>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/addItem:">&ndash;&nbsp;addItem:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/insertItem:atIndex:">&ndash;&nbsp;insertItem:atIndex:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/moveItemAtIndex:toIndex:">&ndash;&nbsp;moveItemAtIndex:toIndex:</a></code>
 	</span>
 	
 	
@@ -1146,6 +1166,62 @@ lower than the current playback volume set by the user.</p>
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/insertItem:atIndex:" title="insertItem:atIndex:"></a>
+	<h3 class="subsubtitle method-title">insertItem:atIndex:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Adds an item to the playlist at a specific position.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)insertItem:(FSPlaylistItem *)<em>item</em> atIndex:(NSInteger)<em>index</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>item</em></dt>
+			<dd><p>The playlist item to be added.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>index</em></dt>
+			<dd><p>The location in the playlist to place the new item</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Adds an item to the playlist at a specific position.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FSAudioController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/isPlaying" title="isPlaying"></a>
 	<h3 class="subsubtitle method-title">isPlaying</h3>
 	
@@ -1170,6 +1246,62 @@ lower than the current playback volume set by the user.</p>
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>Returns the playback status: YES if the stream is playing, NO otherwise.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FSAudioController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/moveItemAtIndex:toIndex:" title="moveItemAtIndex:toIndex:"></a>
+	<h3 class="subsubtitle method-title">moveItemAtIndex:toIndex:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Moves an item already in the playlist to a different position in the playlist</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)moveItemAtIndex:(NSUInteger)<em>from</em> toIndex:(NSUInteger)<em>to</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>from</em></dt>
+			<dd><p>The original index of the track to move</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>to</em></dt>
+			<dd><p>The destination of the the track at the index specified in <code>from</code></p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Moves an item already in the playlist to a different position in the playlist</p>
 	</div>
 	
 	
@@ -1737,7 +1869,7 @@ the URL content type is checked and playlists resolved.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2016 Matias Muhonen. All rights reserved. (Last updated: 2016-01-13)</span><br />
+						<p><span class="copyright">&copy; 2016 Matias Muhonen. All rights reserved. (Last updated: 2016-01-17)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</span></p>
 						
