@@ -43,7 +43,7 @@
 	
 	<option value="instance_methods">Instance Methods</option>
 	
-	<option value="//api/name/audioStream:samplesAvailable:description:">&nbsp;&nbsp;&nbsp;&nbsp;- audioStream:samplesAvailable:description:</option>
+	<option value="//api/name/audioStream:samplesAvailable:frames:description:">&nbsp;&nbsp;&nbsp;&nbsp;- audioStream:samplesAvailable:frames:description:</option>
 	
 	
 	
@@ -73,7 +73,7 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/audioStream:samplesAvailable:description:">audioStream:samplesAvailable:description:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/audioStream:samplesAvailable:frames:description:">audioStream:samplesAvailable:frames:description:</a></span></li>
 	
 </ul></li>
 
@@ -130,7 +130,7 @@
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/audioStream:samplesAvailable:description:">&ndash;&nbsp;audioStream:samplesAvailable:description:</a></code>
+		<code><a href="#//api/name/audioStream:samplesAvailable:frames:description:">&ndash;&nbsp;audioStream:samplesAvailable:frames:description:</a></code>
 	</span>
 	
 	
@@ -152,8 +152,8 @@
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/audioStream:samplesAvailable:description:" title="audioStream:samplesAvailable:description:"></a>
-	<h3 class="subsubtitle method-title">audioStream:samplesAvailable:description:</h3>
+	<a name="//api/name/audioStream:samplesAvailable:frames:description:" title="audioStream:samplesAvailable:frames:description:"></a>
+	<h3 class="subsubtitle method-title">audioStream:samplesAvailable:frames:description:</h3>
 	
 	
 	
@@ -165,7 +165,7 @@ main event loop doesn&rsquo;t block. Failing to do so may cause glitches to the 
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)audioStream:(FSAudioStream *)<em>audioStream</em> samplesAvailable:(AudioBufferList)<em>samples</em> description:(AudioStreamPacketDescription)<em>description</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)audioStream:(FSAudioStream *)<em>audioStream</em> samplesAvailable:(AudioBufferList)<em>samples</em> frames:(UInt32)<em>frames</em> description:(AudioStreamPacketDescription)<em>description</em></code></div>
 
     
 	
@@ -180,6 +180,11 @@ main event loop doesn&rsquo;t block. Failing to do so may cause glitches to the 
 		<dl class="argument-def parameter-def">
 			<dt><em>samples</em></dt>
 			<dd><p>The samples as a buffer list.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>frames</em></dt>
+			<dd><p>The number of frames.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
