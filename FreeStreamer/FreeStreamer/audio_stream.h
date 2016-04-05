@@ -148,6 +148,8 @@ private:
     CFRunLoopTimerRef m_inputStreamTimer;
     CFRunLoopTimerRef m_stateSetTimer;
     
+    UInt32 m_seekTries;
+    
     AudioFileStreamID m_audioFileStream;	// the audio file stream parser
     AudioConverterRef m_audioConverter;
     AudioStreamBasicDescription m_srcFormat;

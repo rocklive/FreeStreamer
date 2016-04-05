@@ -86,6 +86,7 @@ Audio_Stream::Audio_Stream() :
     m_seekTimer(0),
     m_inputStreamTimer(0),
     m_stateSetTimer(0),
+    m_seekTries(0),
     m_audioFileStream(0),
     m_audioConverter(0),
     m_initializationError(noErr),
@@ -474,6 +475,8 @@ void Audio_Stream::seekToOffset(float offset)
     m_inputStream->setScheduledInRunLoop(false);
     
     setSeekOffset(offset);
+    
+    m_seekTries = 0;
     
     if (m_seekTimer) {
         CFRunLoopTimerInvalidate(m_seekTimer);
@@ -1309,6 +1312,8 @@ void Audio_Stream::seekTimerCallback(CFRunLoopTimerRef timer, void *info)
         return;
     }
     
+    Input_Stream_Position position;
+    
     pthread_mutex_lock(&THIS->m_streamStateMutex);
     
     if (THIS->m_decoderActive) {
@@ -1317,10 +1322,31 @@ void Audio_Stream::seekTimerCallback(CFRunLoopTimerRef timer, void *info)
         return;
     } else {
         AS_TRACE("decoder free, seeking\n");
+        pthread_mutex_unlock(&THIS->m_streamStateMutex);
         
-        if (THIS->m_seekTimer) {
-            CFRunLoopTimerInvalidate(THIS->m_seekTimer);
-            CFRelease(THIS->m_seekTimer), THIS->m_seekTimer = 0;
+        position = THIS->streamPositionForOffset(THIS->m_seekOffset);
+        
+        pthread_mutex_lock(&THIS->m_streamStateMutex);
+        
+        if (position.start == 0 && position.end == 0) {
+            AS_TRACE("stream position not available, trying again, try %i\n", THIS->m_seekTries);
+            
+            THIS->m_seekTries++;
+            
+            if (THIS->m_seekTries >= 10) {
+                pthread_mutex_unlock(&THIS->m_streamStateMutex);
+                
+                THIS->closeAndSignalError(AS_ERR_NETWORK, CFSTR("Failed to retrieve seeking position"));
+            } else {
+                pthread_mutex_unlock(&THIS->m_streamStateMutex);
+            }
+            
+            return;
+        } else {
+            if (THIS->m_seekTimer) {
+                CFRunLoopTimerInvalidate(THIS->m_seekTimer);
+                CFRelease(THIS->m_seekTimer), THIS->m_seekTimer = 0;
+            }
         }
         
         pthread_mutex_unlock(&THIS->m_streamStateMutex);
@@ -1328,8 +1354,6 @@ void Audio_Stream::seekTimerCallback(CFRunLoopTimerRef timer, void *info)
     
     // Close the audio queue so that it won't ask any more data
     THIS->closeAudioQueue();
-    
-    Input_Stream_Position position = THIS->streamPositionForOffset(THIS->m_seekOffset);
     
     if (position.start == 0 && position.end == 0) {
         THIS->closeAndSignalError(AS_ERR_NETWORK, CFSTR("Failed to retrieve seeking position"));
