@@ -1038,6 +1038,13 @@ public:
             currentState == astreamer::Audio_Stream::END_OF_FILE);
 }
 
+- (BOOL)isPaused
+{
+    const astreamer::Audio_Stream::State currentState = _audioStream->state();
+    
+    return (currentState == astreamer::Audio_Stream::PAUSED);
+}
+
 - (void)pause
 {
     _wasPaused = YES;
@@ -1421,6 +1428,12 @@ public:
     [_private pause];
 }
 
+- (void)resume{
+    NSAssert([NSThread isMainThread], @"FSAudioStream.resume needs to be called in the main thread");
+    
+    [_private pause];
+}
+
 - (void)rewind:(unsigned int)seconds
 {
     NSAssert([NSThread isMainThread], @"FSAudioStream.rewind needs to be called in the main thread");
@@ -1455,6 +1468,13 @@ public:
     NSAssert([NSThread isMainThread], @"FSAudioStream.isPlaying needs to be called in the main thread");
     
     return [_private isPlaying];
+}
+
+- (BOOL)isPaused
+{
+    NSAssert([NSThread isMainThread], @"FSAudioStream.isPaused needs to be called in the main thread");
+    
+    return [_private isPaused];
 }
 
 - (void)expungeCache
